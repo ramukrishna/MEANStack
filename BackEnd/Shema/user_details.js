@@ -21,11 +21,11 @@ const UserDetailSchema = new Schema({
   },
   gender: { type: String, required: true },
   dofb: { type: Date, required: true },
-  marital_status: { type: String, required: true },
+  is_married: { type: Boolean, required: true },
   date: { type: Date, default: Date.now }
 });
 
 UserDetailSchema.index({ location: '2dsphere' });
 
-const UserDetail = mongoose.model('User', UserDetailSchema);
+const UserDetail = mongoose.model('user_detail', UserDetailSchema);
 module.exports = UserDetail;

@@ -14,18 +14,32 @@ const port = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
-  });
+  res.send('Hello, World!');
+});
 
 // Create a new user
 app.post('/users', async (req, res) => {
+
+  const u_id = uuidv4();  // Generate a unique u_id
+  const loginshema = new UserLogin({ u_id, ...req.body });
+  const deatialshema = new UserDetail({ u_id, ...req.body });
+
   try {
-    const u_id = uuidv4();  // Generate a unique u_id
-    const loginshema = new UserLogin({ u_id, ...req.body });
-    await loginshema.save();
-    res.status(201).send(user);
+
+    const userCredential = await loginshema.save();
+    const userDetail = await deatialshema.save();
+
+    res.status(201).send(userCredential);
+
   } catch (err) {
-    res.status(400).send(err);
+    // Manually rollback User if Profile save fails 
+    if (err) {
+      await loginshema.deleteOne({ u_id: req.body.u_id });
+      await deatialshema.deleteOne({ u_id: req.body.u_id });
+
+    }
+
+    res.status(500).send(err);
   }
 });
 
