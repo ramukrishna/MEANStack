@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('./db'); // Ensure this matches your connection file
-const User = require('./Schema/user');
 const UserDetail = require('./Schema/user_details');
 const UserLogin = require('./Schema/user_login');
 const { v4: uuidv4 } = require('uuid'); // Import the uuid library
+
+const { hashPassword, verifyPassword } = require('./Services/utils');
 
 const cors = require('cors');
 
@@ -21,7 +22,9 @@ app.get('/', (req, res) => {
 app.post('/users', async (req, res) => {
 
   const u_id = uuidv4();  // Generate a unique u_id
-  const loginschema = new UserLogin({ u_id, ...req.body });
+  const p_hash = await hashPassword(req.body.password);
+
+  const loginschema = new UserLogin({ u_id,p_hash, ...req.body });
   const deatialschema = new UserDetail({ u_id, ...req.body });
 
   try {
@@ -50,6 +53,26 @@ app.get('/users', async (req, res) => {
     res.send(users);
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+
+// Login a user
+app.post('/login', async (req, res) => {
+  try {
+    const { u_name, password } = req.body;
+    const user = await UserLogin.findOne({ u_name });
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    const isMatch = await verifyPassword(password, user.p_hash);
+    if (!isMatch) {
+      return res.status(401).send('Invalid credentials');
+    }
+
+    res.status(201).send(user);
+  } catch (err) {
+    res.status(400).send(err);
   }
 });
 
