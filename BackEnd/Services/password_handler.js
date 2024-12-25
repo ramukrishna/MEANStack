@@ -12,7 +12,6 @@ const hashPassword = async (password) => {
   }
 };
 
-
 // Function to verify a password
 const verifyPassword = async (password, hashedPassword) => {
   try {
