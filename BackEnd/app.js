@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('./db'); // Ensure this matches your connection file
-const User = require('./Shema/user');
-const UserDetail = require('./Shema/user_details');
-const UserLogin = require('./Shema/user_login');
+const User = require('./Schema/user');
+const UserDetail = require('./Schema/user_details');
+const UserLogin = require('./Schema/user_login');
 const { v4: uuidv4 } = require('uuid'); // Import the uuid library
 
 const cors = require('cors');
@@ -21,21 +21,21 @@ app.get('/', (req, res) => {
 app.post('/users', async (req, res) => {
 
   const u_id = uuidv4();  // Generate a unique u_id
-  const loginshema = new UserLogin({ u_id, ...req.body });
-  const deatialshema = new UserDetail({ u_id, ...req.body });
+  const loginschema = new UserLogin({ u_id, ...req.body });
+  const deatialschema = new UserDetail({ u_id, ...req.body });
 
   try {
 
-    const userCredential = await loginshema.save();
-    const userDetail = await deatialshema.save();
+    const userCredential = await loginschema.save();
+    const userDetail = await deatialschema.save();
 
     res.status(201).send(userCredential);
 
   } catch (err) {
     // Manually rollback User if Profile save fails 
     if (err) {
-      await loginshema.deleteOne({ u_id: req.body.u_id });
-      await deatialshema.deleteOne({ u_id: req.body.u_id });
+      await loginschema.deleteOne({ u_id: req.body.u_id });
+      await deatialschema.deleteOne({ u_id: req.body.u_id });
 
     }
 
