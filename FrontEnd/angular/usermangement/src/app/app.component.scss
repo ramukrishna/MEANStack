@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+}
+main {
+  flex: 1;
+  display: block;
+}
+.maincontent{
+    display: block;
+}
+.sidebar{
+    width: 20vw;
+}
+.header{
+    height: 40px;
+    display: block;
+}
+.footer{
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    display: block;
+}

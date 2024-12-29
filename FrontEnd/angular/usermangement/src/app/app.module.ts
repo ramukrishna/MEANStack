@@ -4,16 +4,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { RouterModule, RouterOutlet } from '@angular/router';
+
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule
+    RouterModule, 
+    RouterOutlet
   ],
   providers: [],
   bootstrap: [AppComponent]
