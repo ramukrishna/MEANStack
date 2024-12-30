@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    SharedModule
   ],
   providers:[AuthService]
 })

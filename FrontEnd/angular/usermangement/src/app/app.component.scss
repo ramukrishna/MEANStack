@@ -40,3 +40,16 @@ app-footer {
   align-self: auto !important;
 }
 
+.mat-mdc-form-field{
+  margin: 2em !important;
+}
+
+.scroll-container{
+  overflow: auto !important;
+  display: block !important;
+  height: calc(100vh - 160px);
+}
+
+.content {
+  overflow: hidden !important;
+}
