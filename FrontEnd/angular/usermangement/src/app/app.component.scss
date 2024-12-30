@@ -1,23 +1,42 @@
+mat-sidenav-container {
+  height: 100%;
+}
+
+.content {
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 200px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 .container {
   display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-main {
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  display: block;
 }
-.maincontent{
-    display: block;
+
+.content {
+  flex: 1;
+  padding: 16px;
 }
-.sidebar{
-    width: 20vw;
+
+app-footer {
+  width: 100% !important;
+  align-self: auto !important;
 }
-.header{
-    height: 40px;
-    display: block;
-}
-.footer{
-    height: 40px;
-    position: fixed;
-    bottom: 0;
-    display: block;
-}
+

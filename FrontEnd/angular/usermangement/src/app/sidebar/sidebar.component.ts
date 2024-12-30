@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  menuItems =["login", "register", "forgot password"];
+
 }
