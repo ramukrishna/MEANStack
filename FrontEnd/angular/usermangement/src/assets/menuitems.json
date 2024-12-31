@@ -1,0 +1,48 @@
+[
+    {
+      "title": "Home",
+      "icon": "home",
+      "route": "basic/home"
+    },
+    {
+      "title": "About",
+      "icon": "info",
+      "route": "basic/about"
+    },
+    {
+      "title": "Services",
+      "icon": "build",
+      "route": "basic/services"
+    },
+    {
+      "title": "Contact",
+      "icon": "contacts",
+      "route": "basic/contact"
+    },
+    {
+      "title": "login",
+      "icon": "login",
+      "route": "/login"
+    },
+    {
+      "title": "register",
+      "icon": "register",
+      "route": "/register"
+    },
+    {
+      "title": "forgot password",
+      "icon": "forgotpassword",
+      "route": "/forgotpassword"
+    },
+    {
+      "title": "reset password",
+      "icon": "resetpassword",
+      "route": "/resetpassword"
+    },
+    {
+        "title": "logout",
+        "icon": "logout",
+        "fucntion":"logout"
+      }
+  ]
+  
