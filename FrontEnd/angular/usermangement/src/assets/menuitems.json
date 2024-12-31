@@ -22,22 +22,22 @@
     {
       "title": "login",
       "icon": "login",
-      "route": "/login"
+      "route": "auth/login"
     },
     {
       "title": "register",
       "icon": "register",
-      "route": "/register"
+      "route": "auth/register"
     },
     {
       "title": "forgot password",
       "icon": "forgotpassword",
-      "route": "/forgotpassword"
+      "route": "auth/forgotpassword"
     },
     {
       "title": "reset password",
       "icon": "resetpassword",
-      "route": "/resetpassword"
+      "route": "auth/resetpassword"
     },
     {
         "title": "logout",
