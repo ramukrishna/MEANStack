@@ -8,12 +8,14 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { SharedModule } from '../shared/shared.module';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

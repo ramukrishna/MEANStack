@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MenuItem } from '../interfaces/userinterface';
+import { MenuItem, NavItem } from '../interfaces/userinterface';
 
 
 @Component({
@@ -10,12 +10,12 @@ import { MenuItem } from '../interfaces/userinterface';
 })
 
 export class SidebarComponent implements OnInit {
-  menuItems: MenuItem[] = [];
+  menuItems: NavItem[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<MenuItem[]>('assets/menuitems.json').subscribe(data => {
+    this.http.get<NavItem[]>('assets/menuitems.json').subscribe(data => {
       this.menuItems = data;
     });
   }

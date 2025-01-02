@@ -1,0 +1,8 @@
+mat-list-item { display: block; height: auto !important;} 
+.sub-menu { padding-left: 20px; } 
+.sub-menu mat-list-item { display: block; padding-left: 20px;height: auto !important; }
+// to show arrow drop down icon at right
+.expand-icon {    position: absolute !important;    right: -30px;  }
+mat-list-item button  {   margin-right: 30px;  }
+
+.expandable-button { display: flex; align-items: center; width: 100%; text-align: left; } .expandable-button mat-icon { margin-right: 10px; /* Add space between the first icon and text */ }

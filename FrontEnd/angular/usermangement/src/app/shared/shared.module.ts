@@ -17,6 +17,9 @@ import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { MatTableModule, MatTableDataSource } from '@angular/material/table'
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
   ],
   exports: [
     MatInputModule,
@@ -50,7 +54,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatListModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
   ]
 })
 export class SharedModule { }
