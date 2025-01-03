@@ -1,0 +1,55 @@
+mat-sidenav-container {
+  height: 100%;
+}
+
+.content {
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 200px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.content {
+  flex: 1;
+  padding: 16px;
+}
+
+app-footer {
+  width: 100% !important;
+  align-self: auto !important;
+}
+
+.mat-mdc-form-field{
+  margin: 2em !important;
+}
+
+.scroll-container{
+  overflow: auto !important;
+  display: block !important;
+  height: calc(100vh - 160px);
+}
+
+.content {
+  overflow: hidden !important;
+}

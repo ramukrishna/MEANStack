@@ -1,0 +1,28 @@
+<!-- <mat-nav-list>
+    <mat-list-item *ngFor="let item of menuItems" [routerLink]="item.route">
+        {{ item.title }}
+    </mat-list-item>
+</mat-nav-list> -->
+
+
+<mat-nav-list>
+    <ng-container *ngTemplateOutlet="renderNav; context: { items: menuItems }"></ng-container>
+</mat-nav-list>
+<ng-template #renderNav let-items="items">
+    <mat-list>
+        <mat-list-item *ngFor="let item of items" >
+            <button mat-button (click)="item.expanded = !item.expanded" *ngIf="item.children">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                {{ item.title }}
+                <mat-icon class="expand-icon" *ngIf="item.children">{{ item.expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+            </button>
+            <button mat-button *ngIf="!item.children" [routerLink]="item.route" >
+                <mat-icon>{{ item.icon }}</mat-icon>
+                {{ item.title }}
+            </button>
+            <div *ngIf="item.children && item.expanded" class="sub-menu">
+                <ng-container *ngTemplateOutlet="renderNav; context: { items: item.children }"></ng-container>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</ng-template>

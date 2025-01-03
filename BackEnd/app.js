@@ -16,6 +16,24 @@ const port = 3000;
 // Middleware to parse JSON
 app.use(express.json());
 
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions)); // Preflight request handling
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
+
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
@@ -51,7 +69,7 @@ app.post('/users', async (req, res) => {
 // Get all users
 app.get('/users', async (req, res) => {
   try {
-    const users = await UserLogin.find();
+    const users = await UserDetail.find();
     res.send(users);
   } catch (err) {
     res.status(500).send(err);
