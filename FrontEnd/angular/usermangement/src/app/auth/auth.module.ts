@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { SharedModule } from '../shared/shared.module';
 import { UsersComponent } from './users/users.component';
+import { GeolocationService } from '../services/geolocation.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { UsersComponent } from './users/users.component';
     AuthRoutingModule,
     SharedModule
   ],
-  providers:[AuthService]
+  providers:[AuthService,GeolocationService]
 })
 export class AuthModule { }

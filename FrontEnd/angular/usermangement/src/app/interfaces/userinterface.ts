@@ -19,3 +19,9 @@ export interface LoggedInUsers {
     "hash_algorithm_id": string,
     "date": Date,
 }
+
+export interface Geolocation {
+    latitude: number | undefined;
+    longitude: number | undefined; 
+    error: string | undefined;
+}

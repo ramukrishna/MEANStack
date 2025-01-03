@@ -2,12 +2,17 @@
   margin: 2em !important;
 }
 
-.scroll-container{
-    overflow: auto !important;
-    display: block !important;
-    height: calc(100vh - 160px);
-  }
-  
-  .content {
-    overflow: hidden !important;
-  }
+.scroll-container {
+  overflow: auto !important;
+  display: block !important;
+  height: calc(100vh - 160px);
+}
+
+.content {
+  overflow: hidden !important;
+}
+
+div[formGroupName='location'] {
+  display: flex;
+  flex-direction: column;
+}

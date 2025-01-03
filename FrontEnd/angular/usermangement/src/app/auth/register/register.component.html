@@ -46,12 +46,21 @@
                 <mat-label>Zip</mat-label>
                 <input matInput formControlName="zip">
             </mat-form-field>
+            <div formGroupName="location">
+                <span>
+                    <mat-form-field appearance="fill">
+                        <mat-label>laitude</mat-label>
+                        <input matInput formControlName="latitude">
+                    </mat-form-field>
+                </span>
+                <span>
+                    <mat-form-field appearance="fill">
+                        <mat-label>longitude</mat-label>
+                        <input matInput formControlName="longitude">
+                    </mat-form-field>
+                </span>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Coordinates</mat-label>
-                <input matInput formControlName="coordinates">
-            </mat-form-field>
-
+            </div>
             <mat-form-field appearance="fill">
                 <mat-label>Gender</mat-label>
                 <mat-select formControlName="gender">
