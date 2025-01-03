@@ -1,0 +1,15 @@
+{
+  "name": "ionic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ionic": "ionic"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@ionic/cli": "^7.2.0"
+  }
+}
