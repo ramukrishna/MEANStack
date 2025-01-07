@@ -5,16 +5,24 @@
         <ion-list id="inbox-list">
           <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi&#64;ionicframework.com</ion-note>
+          <ng-container *ngTemplateOutlet="renderNav; context: { items: appPages }"></ng-container>
+        </ion-list>
 
-          @for (p of appPages; track p; let i = $index) {
+        <ng-template #renderNav let-items="items">
+          @for (p of items; track p; let i = $index) {
             <ion-menu-toggle auto-hide="false">
-              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-item routerDirection="root"  (click)="p.expanded = !p.expanded"  [routerLink]="p.children ? [] : [p.route]"  lines="none" detail="false" routerLinkActive="selected">
                 <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
+                <ion-icon class="expand-icon" slot="end" name ="chevron-down-outline" *ngIf="p.children && p.expanded"></ion-icon>              
+                <ion-icon class="expand-icon" slot="end" name ="chevron-forward-outline" *ngIf="p.children && !p.expanded"></ion-icon>              
               </ion-item>
             </ion-menu-toggle>
+            <div *ngIf="p.children && p.expanded" class="sub-menu">
+              <ng-container *ngTemplateOutlet="renderNav; context: { items: p.children }"></ng-container>
+            </div>
           }
-        </ion-list>
+        </ng-template>
 
         <ion-list id="labels-list">
           <ion-list-header>Labels</ion-list-header>
